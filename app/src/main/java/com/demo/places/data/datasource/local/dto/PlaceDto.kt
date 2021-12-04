@@ -1,6 +1,5 @@
 package com.demo.places.data.datasource.local.dto
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.demo.places.domain.entity.PlaceDetail

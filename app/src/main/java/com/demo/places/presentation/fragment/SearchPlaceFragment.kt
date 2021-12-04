@@ -4,19 +4,24 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.MutableLiveData
 import com.demo.places.R
 import com.demo.places.databinding.FragmentNearbyPlacesBinding
+import com.demo.places.presentation.activity.PlaceDetailActivity
 import com.demo.places.presentation.base.BaseFragment
 import com.demo.places.presentation.model.PlaceResultModel
+import com.demo.places.presentation.util.distanceTo
 import com.demo.places.presentation.util.showToast
 import com.demo.places.presentation.util.tint
 import com.demo.places.presentation.viewModel.SearchPlacesViewModel
@@ -84,6 +89,14 @@ class SearchPlaceFragment: BaseFragment<FragmentNearbyPlacesBinding>(), OnMapRea
                 }
             }
         })
+
+        viewModel.progress.observe(viewLifecycleOwner,{
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        })
+
+        viewModel.empty.observe(viewLifecycleOwner,{
+            requireActivity().showToast(getString(R.string.no_results_nearby),Toast.LENGTH_SHORT)
+        })
     }
 
     @SuppressLint("MissingPermission")
@@ -107,6 +120,22 @@ class SearchPlaceFragment: BaseFragment<FragmentNearbyPlacesBinding>(), OnMapRea
 
     override fun onMapReady(gMap: GoogleMap) {
         googleMap = gMap
+        googleMap?.uiSettings?.isMapToolbarEnabled = false
+        googleMap?.setOnInfoWindowClickListener {
+            goToDetail(it.tag as String)
+        }
+
+        googleMap?.setOnCameraIdleListener {
+            location?.let {
+                googleMap?.cameraPosition?.target?.let { newLoc->
+                    if (it.distanceTo(newLoc)> SEARCH_RADIUS){
+                        searchKeyword()
+                    }
+                }
+
+            }
+        }
+
         if (ActivityCompat.checkSelfPermission(
                 requireActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -118,13 +147,10 @@ class SearchPlaceFragment: BaseFragment<FragmentNearbyPlacesBinding>(), OnMapRea
         }
         googleMap?.isMyLocationEnabled = true
         getCurrentLocation()
-
-        googleMap?.setOnInfoWindowClickListener {
-            goToDetail(it.tag as String)
-        }
     }
 
     private fun goToDetail(id: String) {
+        startActivity(PlaceDetailActivity.newInstance(requireActivity(),id))
     }
 
     @SuppressLint("MissingPermission")

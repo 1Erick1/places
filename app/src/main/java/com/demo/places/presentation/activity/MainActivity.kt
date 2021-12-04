@@ -21,6 +21,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
     override fun setupView() {
         with(binding){
             showFragment(searchFragment)
+            setTitle(R.string.menu_nearby)
             currentFragment = searchFragment
             navView.setOnItemSelectedListener {
                 when(it.itemId){
@@ -29,6 +30,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                             hideFragment(favoriteFragment)
                             showFragment(searchFragment)
                             currentFragment = searchFragment
+                            setTitle(R.string.menu_nearby)
                         }
                     }
                     R.id.menu_favorite->{
@@ -36,6 +38,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
                             hideFragment(searchFragment)
                             showFragment(favoriteFragment)
                             currentFragment = favoriteFragment
+                            setTitle(R.string.menu_favorite)
                         }
                     }
                 }
@@ -62,7 +65,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>() {
     override fun setupObservers() {
     }
 
-    override fun getErrorObservers(): List<MutableLiveData<String?>>? {
+    override fun getErrorObservers(): List<MutableLiveData<Exception>>? {
         return null
     }
 }

@@ -15,7 +15,7 @@ abstract class BaseActivity<T: ViewBinding>: AppCompatActivity() {
     abstract fun setupView()
     abstract fun setupEvents()
     abstract fun setupObservers()
-    abstract fun getErrorObservers(): List<MutableLiveData<String?>>?
+    abstract fun getErrorObservers(): List<MutableLiveData<Exception>>?
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ abstract class BaseActivity<T: ViewBinding>: AppCompatActivity() {
         getErrorObservers()?.let {
             for (error in it){
                 error.observe(this, {
-                    showToast(it?:getString(R.string.generic_error_msg))
+                    showToast(getString(R.string.generic_error_msg))
                 })
             }
         }

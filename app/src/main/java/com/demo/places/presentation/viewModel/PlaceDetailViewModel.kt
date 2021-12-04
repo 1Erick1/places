@@ -21,13 +21,13 @@ class PlaceDetailViewModel(
     }
 
     fun saveFavorite(place: PlaceDetailModel){
-        execute {
+        executeNoProgress {
             saveFavoritePlaceInteractor.execute(place.toDomain())
         }
     }
 
     fun removeFavorite(id: String){
-        execute {
+        executeNoProgress {
             removeFavoritePlaceInteractor.execute(id)
         }
     }

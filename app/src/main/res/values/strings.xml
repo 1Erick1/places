@@ -6,4 +6,7 @@
     <string name="menu_favorite">Favorite</string>
     <string name="generic_error_msg">An error occurred</string>
     <string name="location_permission_not_granted">Location permission required</string>
+    <string name="title_detail">Detail</string>
+    <string name="no_results_nearby">No results found nearby</string>
+    <string name="favs_empty_msg">You haven\'t saved any places yet</string>
 </resources>

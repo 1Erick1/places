@@ -11,4 +11,5 @@
     <color name="text_secondary">#424242</color>
     <color name="light_gray">#BDBDBD</color>
     <color name="red">#FF0000</color>
+    <color name="star">#FFC107</color>
 </resources>

@@ -42,6 +42,7 @@ class ReviewAdapter(): RecyclerView.Adapter<ReviewAdapter.ViewHolder>() {
                 tvName.text = review.authorName
                 tvReview.text = review.text
                 tvTimeAgo.text = review.timeAgoDescription
+                ratingBar.rating = review.rating.toFloat()
             }
         }
     }

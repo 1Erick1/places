@@ -13,8 +13,13 @@ class SearchPlacesViewModel(
 
     fun search(keyword: String, location: LatLng, radius: Int){
         execute {
-            places.postValue(searchPlacesInteractor.execute(keyword,location.latitude,location.longitude,radius)
-                .map { PlaceResultModel.fromDomain(it) })
+            val results = searchPlacesInteractor.execute(keyword,location.latitude,location.longitude,radius)
+            if (results.isNullOrEmpty()){
+                empty.postValue(true)
+            }else{
+                places.postValue(results.map { PlaceResultModel.fromDomain(it) })
+            }
+
         }
     }
 }

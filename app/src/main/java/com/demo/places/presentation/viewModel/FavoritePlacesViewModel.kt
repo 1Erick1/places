@@ -12,8 +12,13 @@ class FavoritePlacesViewModel(
 
     fun getFavoritePlaces(){
         execute {
-            places.postValue(getFavoritePlacesInteractor.execute()
-                .map { PlaceDetailModel.fromDomain(it) })
+            val favs = getFavoritePlacesInteractor.execute()
+            if (favs.isNullOrEmpty()){
+                empty.postValue(true)
+            }else{
+                places.postValue(favs.map { PlaceDetailModel.fromDomain(it) })
+                empty.postValue(false)
+            }
         }
     }
 }

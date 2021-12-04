@@ -10,7 +10,9 @@ import org.koin.dsl.module
 
 val localModule = module {
     single { providePlacesDataBase(androidContext()) }
-    single<IPlacesLocalDataSource> { PlacesLocalDataSource(get()) }
+    single { get<PlacesDataBase>().placeDao() }
+    single { get<PlacesDataBase>().reviewDao() }
+    single<IPlacesLocalDataSource> { PlacesLocalDataSource(get(),get()) }
 }
 
 fun providePlacesDataBase(context: Context): PlacesDataBase{
