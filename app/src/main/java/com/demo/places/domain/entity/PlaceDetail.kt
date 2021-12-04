@@ -8,7 +8,7 @@ class PlaceDetail(
     val address: String,
     val rating: Double?,
     val pictures: List<String>?,
-    val reviews: List<Review>?,
+    var reviews: List<Review>? = null,
     val iconUrl: String?,
     val iconBgColor: String?,
     var isFavorite: Boolean = false

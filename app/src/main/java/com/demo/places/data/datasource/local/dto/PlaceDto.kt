@@ -14,7 +14,6 @@ data class PlaceDto(
     val address: String,
     val rating: Double?,
     val pictures: List<String>?,
-    @Embedded val reviews: List<ReviewDto>?,
     val iconUrl: String?,
     val iconBgColor: String?
 ){
@@ -27,7 +26,6 @@ data class PlaceDto(
             address = address,
             rating = rating,
             pictures = pictures,
-            reviews = reviews?.map { it.toDomain() },
             iconUrl = iconUrl,
             iconBgColor = iconBgColor,
             isFavorite = true
@@ -44,7 +42,6 @@ data class PlaceDto(
                 address = place.address,
                 rating = place.rating,
                 pictures = place.pictures,
-                reviews = place.reviews?.map { ReviewDto.fromDomain(it) },
                 iconUrl = place.iconUrl,
                 iconBgColor = place.iconBgColor
             )
