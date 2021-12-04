@@ -4,8 +4,9 @@ Sample app that shows nearby places from Google Places API
 
 ## Technologies
 
-- Clean arquitecture
+- Clean architecture
 - MVVM
+- LiveData
 - Koin
 - Coroutines
 - Room
