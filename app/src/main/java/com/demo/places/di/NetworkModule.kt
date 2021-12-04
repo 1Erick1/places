@@ -4,9 +4,7 @@ import android.content.Context
 import com.demo.places.BuildConfig
 import com.demo.places.data.datasource.network.IPlacesNetworkDataSource
 import com.demo.places.data.datasource.network.service.PlacesService
-import com.demo.places.domain.repository.PlacesNetworkDataSource
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.demo.places.data.datasource.network.PlacesNetworkDataSource
 import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

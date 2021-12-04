@@ -6,12 +6,13 @@ import com.google.gson.annotations.SerializedName
 class ReviewResponse(
     @SerializedName("author_name") val authorName: String,
     @SerializedName("profile_photo_url") val profilePicUrl: String?,
-    @SerializedName("rating") val rating: Int,
+    @SerializedName("rating") val rating: Double,
     @SerializedName("relative_time_description") val timeAgoDescription: String,
     @SerializedName("text") val text: String
 ) {
-    fun toDomain(): Review{
+    fun toDomain(placeId: String): Review{
         return Review(
+            placeId = placeId,
             authorName = authorName,
             profilePicUrl = profilePicUrl,
             rating = rating,

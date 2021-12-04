@@ -1,6 +1,5 @@
-package com.demo.places.domain.repository
+package com.demo.places.data.datasource.network
 
-import com.demo.places.data.datasource.network.IPlacesNetworkDataSource
 import com.demo.places.data.datasource.network.service.PlacesService
 import com.demo.places.domain.entity.PlaceDetail
 import com.demo.places.domain.entity.PlaceResult
