@@ -18,9 +18,16 @@ android {
     }
 
     buildTypes {
+        debug{
+            minifyEnabled false
+            buildConfigField "String", "PLACES_API_URL", "\"https://maps.googleapis.com/maps/api/place/\""
+            buildConfigField "String", "GOOGLE_API_KEY", "\"AIzaSyDCeQPW4PqWHYOt5UxmFq2aVmIrep0xoko\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "PLACES_API_URL", "\"https://maps.googleapis.com/maps/api/place/\""
+            buildConfigField "String", "GOOGLE_API_KEY", "\"AIzaSyDCeQPW4PqWHYOt5UxmFq2aVmIrep0xoko\""
         }
     }
     compileOptions {
@@ -35,8 +42,8 @@ android {
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
