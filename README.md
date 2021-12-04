@@ -2,6 +2,26 @@
 
 Sample app that shows nearby places from Google Places API
 
+## Technologies
+
+- Clean arquitecture
+- MVVM
+- Koin
+- Coroutines
+- Room
+- Google Maps
+
+## Installation
+Clone this repository and import it into **Android Studio**
+```bash
+git clone git@github.com:1Erick1/places.git
+```
+
+## Requirements
+
+-Android Studio 4.0+
+
+-Android SDK Platform 30
 
 
 ## Screenshots
