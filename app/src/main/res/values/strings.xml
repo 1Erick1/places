@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Places</string>
+    <string name="reviews">Reviews</string>
+    <string name="hint_search_place">Search here</string>
+    <string name="menu_nearby">Explore</string>
+    <string name="menu_favorite">Favorite</string>
 </resources>
