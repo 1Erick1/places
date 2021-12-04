@@ -6,8 +6,10 @@ class PlaceDetail(
     val latitude: Double,
     val longitude: Double,
     val address: String,
-    val rating: Int?,
+    val rating: Double?,
     val pictures: List<String>?,
     val reviews: List<Review>?,
-    var isFavorite: Boolean
+    val iconUrl: String?,
+    val iconBgColor: String?,
+    var isFavorite: Boolean = false
 )

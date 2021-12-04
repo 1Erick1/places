@@ -8,5 +8,7 @@ interface IPlacesRepository {
 
     suspend fun getPlaceDetail(id: String): PlaceDetail
 
-    suspend fun setFavoriteState(isFavorite: Boolean)
+    suspend fun saveFavorite(place: PlaceDetail)
+
+    suspend fun removeFavorite(id: String)
 }

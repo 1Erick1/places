@@ -5,6 +5,6 @@ data class PlaceResult(
     val name: String,
     val latitude: Double,
     val longitude: Double,
-    val iconUrl: String,
-    val iconBgColor: String
+    val iconUrl: String?,
+    val iconBgColor: String?
 )
