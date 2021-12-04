@@ -6,7 +6,7 @@
 
     <fragment
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:id="@+id/map"
+        android:id="@+id/mapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
@@ -31,12 +31,14 @@
                 map:layout_constraintTop_toTopOf="parent"
                 map:layout_constraintBottom_toBottomOf="parent"
                 map:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                map:layout_constraintEnd_toStartOf="@id/ivSearch"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 android:background="@null"
                 android:textColor="@color/text_primary"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:hint="@string/hint_search_place"
                 android:inputType="text"
                 android:imeOptions="actionSearch"/>

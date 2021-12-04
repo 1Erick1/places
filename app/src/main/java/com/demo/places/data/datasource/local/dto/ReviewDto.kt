@@ -1,10 +1,12 @@
 package com.demo.places.data.datasource.local.dto
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.demo.places.domain.entity.Review
 
 @Entity(tableName = "review")
 data class ReviewDto(
+    @PrimaryKey(autoGenerate = true) val id: Int=0,
     val placeId: String,
     val authorName: String,
     val text: String,

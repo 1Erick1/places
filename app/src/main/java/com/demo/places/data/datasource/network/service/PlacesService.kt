@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface PlacesService {
     @GET("nearbysearch/json")
-    suspend fun searchNearby(@Query("keyword") keyword:String, @Query("location") location: String, @Query("radius") radius: Int): NearbySearchResponse
+    suspend fun searchNearby(@Query("keyword") keyword:String, @Query("location") location: String?, @Query("radius") radius: Int): NearbySearchResponse
 
     @GET("details/json")
     suspend fun getPlaceDetail(@Query("place_id") id: String): GetDetailResponse

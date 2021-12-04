@@ -4,4 +4,6 @@
     <string name="hint_search_place">Search here</string>
     <string name="menu_nearby">Explore</string>
     <string name="menu_favorite">Favorite</string>
+    <string name="generic_error_msg">An error occurred</string>
+    <string name="location_permission_not_granted">Location permission required</string>
 </resources>

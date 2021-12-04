@@ -7,6 +7,6 @@ class GeometryResponse(
 ){
     class LocationResponse(
         @SerializedName("lat") val lat: Double,
-        @SerializedName("lon") val lon: Double
+        @SerializedName("lng") val lon: Double
     )
 }

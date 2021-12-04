@@ -9,7 +9,7 @@ data class PlaceDetailModel(
     val location: LatLng,
     val address: String,
     val rating: Double?,
-    val pictures: List<String>?,
+    val picture: String?,
     val reviews: List<ReviewModel>?,
     val markerColor: String?,
     val isFavorite: Boolean
@@ -21,7 +21,7 @@ data class PlaceDetailModel(
             location = LatLng(place.latitude,place.longitude),
             address = place.address,
             rating = place.rating,
-            pictures = place.pictures,
+            picture = place.picture,
             reviews = place.reviews?.map { ReviewModel.fromDomain(it) },
             markerColor = place.iconBgColor,
             isFavorite = place.isFavorite
@@ -35,7 +35,7 @@ data class PlaceDetailModel(
         longitude = location.longitude,
         address = address,
         rating = rating,
-        pictures = pictures,
+        picture = picture,
         reviews = reviews?.map { it.toDomain() },
         iconBgColor = markerColor
     )

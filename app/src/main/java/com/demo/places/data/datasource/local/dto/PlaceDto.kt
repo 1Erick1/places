@@ -13,7 +13,7 @@ data class PlaceDto(
     val longitude: Double,
     val address: String,
     val rating: Double?,
-    val pictures: List<String>?,
+    val picture: String?,
     val iconUrl: String?,
     val iconBgColor: String?
 ){
@@ -25,7 +25,7 @@ data class PlaceDto(
             longitude = longitude,
             address = address,
             rating = rating,
-            pictures = pictures,
+            picture = picture,
             iconUrl = iconUrl,
             iconBgColor = iconBgColor,
             isFavorite = true
@@ -41,7 +41,7 @@ data class PlaceDto(
                 longitude = place.longitude,
                 address = place.address,
                 rating = place.rating,
-                pictures = place.pictures,
+                picture = place.picture,
                 iconUrl = place.iconUrl,
                 iconBgColor = place.iconBgColor
             )

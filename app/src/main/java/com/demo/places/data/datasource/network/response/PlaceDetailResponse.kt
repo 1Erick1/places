@@ -25,7 +25,7 @@ class PlaceDetailResponse(
             longitude = geometry?.location?.lon?:0.0,
             rating = rating,
             reviews = reviews?.map { it.toDomain(id) },
-            pictures = pictures?.map { it.getUrl() }
+            picture = pictures?.map { it.getUrl() }?.first()
         )
     }
 }

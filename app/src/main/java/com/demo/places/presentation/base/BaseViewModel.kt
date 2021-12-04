@@ -7,7 +7,7 @@ import kotlinx.coroutines.launch
 
 open class BaseViewModel: ViewModel() {
     val progress = MutableLiveData<Boolean>()
-    val error = MutableLiveData<String?>()
+    val error = MutableLiveData<Exception>()
 
     fun execute(func: suspend ()->Unit){
         viewModelScope.launch {
@@ -17,7 +17,7 @@ open class BaseViewModel: ViewModel() {
                 progress.postValue(false)
             }catch (e: Exception){
                 progress.postValue(false)
-                error.postValue(e.message)
+                error.postValue(e)
                 e.printStackTrace()
             }
         }

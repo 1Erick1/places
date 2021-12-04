@@ -7,7 +7,7 @@ class PlaceDetail(
     val longitude: Double,
     val address: String,
     val rating: Double?,
-    val pictures: List<String>?,
+    val picture: String?,
     var reviews: List<Review>? = null,
     val iconUrl: String? = null,
     val iconBgColor: String?,

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.demo.places.data.datasource.local.dto.ReviewDto
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ReviewDao {
