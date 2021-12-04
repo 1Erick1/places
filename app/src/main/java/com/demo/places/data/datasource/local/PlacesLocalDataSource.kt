@@ -15,8 +15,13 @@ class PlacesLocalDataSource(
         }
     }
 
+    override suspend fun getAllPlaces(): List<PlaceDetail> {
+        return placesDataBase.placeDao().getAll()
+            .map { it.toDomain() }
+    }
+
     override suspend fun savePlace(placeDetail: PlaceDetail) {
-        placesDataBase.placeDao().insertPlace(PlaceDto.fromDomain(placeDetail))
+        placesDataBase.placeDao().insertPlace(PlaceDto.fromDomain(placeDetail.apply { isFavorite = true }))
         placeDetail.reviews?.let {
             placesDataBase.reviewDao().insertReviews(it.map { ReviewDto.fromDomain(it) })
         }

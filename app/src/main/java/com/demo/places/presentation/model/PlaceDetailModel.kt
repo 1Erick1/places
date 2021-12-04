@@ -27,4 +27,16 @@ data class PlaceDetailModel(
             isFavorite = place.isFavorite
         )
     }
+
+    fun toDomain() = PlaceDetail(
+        id = id,
+        name = name,
+        latitude = location.latitude,
+        longitude = location.longitude,
+        address = address,
+        rating = rating,
+        pictures = pictures,
+        reviews = reviews?.map { it.toDomain() },
+        iconBgColor = markerColor
+    )
 }

@@ -25,6 +25,10 @@ class PlacesRepository(
         return place?:placesNetworkDataSource.getPlaceDetail(id)
     }
 
+    override suspend fun getFavoritePlaces(): List<PlaceDetail> {
+        return placesLocalDataSource.getAllPlaces()
+    }
+
     override suspend fun saveFavorite(place: PlaceDetail) {
         placesLocalDataSource.savePlace(place)
     }

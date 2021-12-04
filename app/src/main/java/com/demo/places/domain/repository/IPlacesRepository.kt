@@ -11,4 +11,6 @@ interface IPlacesRepository {
     suspend fun saveFavorite(place: PlaceDetail)
 
     suspend fun removeFavorite(id: String)
+
+    suspend fun getFavoritePlaces(): List<PlaceDetail>
 }

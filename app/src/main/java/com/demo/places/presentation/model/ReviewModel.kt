@@ -20,4 +20,13 @@ data class ReviewModel(
             timeAgoDescription = review.timeAgoDescription
         )
     }
+
+    fun toDomain() = Review(
+        placeId = placeId,
+        authorName = authorName,
+        profilePicUrl = profilePicUrl,
+        rating = rating,
+        timeAgoDescription = timeAgoDescription,
+        text = text
+    )
 }

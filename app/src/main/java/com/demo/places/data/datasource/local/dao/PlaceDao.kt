@@ -11,6 +11,9 @@ interface PlaceDao {
     @Query("SELECT * FROM place WHERE id=:id")
     suspend fun getPlaceById(id: String): PlaceDto?
 
+    @Query("SELECT * FROM place")
+    suspend fun getAll(): List<PlaceDto>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPlace(place: PlaceDto)
 
